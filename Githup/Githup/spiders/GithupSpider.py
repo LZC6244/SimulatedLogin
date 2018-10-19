@@ -44,9 +44,9 @@ class GithupspiderSpider(scrapy.Spider):
                 'authenticity_token': authenticity_token,
                 'commit': 'Sign+in',
                 # 你自己的帐户
-                'login': '624486877@qq.com',
+                'login': 'xxxxxx',
                 # 你自己的密码
-                'password': 'aptx4869',
+                'password': 'xxxxxx',
                 'utf8': '✓'
             },
             callback=self.githup_after_login,

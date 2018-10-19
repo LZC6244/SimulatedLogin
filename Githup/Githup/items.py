@@ -11,4 +11,5 @@ import scrapy
 class GithupItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
+    # 项目名称
     project_name = scrapy.Field()
