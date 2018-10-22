@@ -14,7 +14,7 @@ class RenrenwangspiderSpider(scrapy.Spider):
         'Accept-Encoding': 'gzip, deflate',
         'Accept-Language': 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
         'Connection': 'keep-alive',
-        'Referer': 'http://www.renren.com/SysHome.do?origURL=http%3A%2F%2Fwww.renren.com%2F959050106',
+        'Referer': '请求报头的referer值',
         'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:62.0) Gecko/20100101 Firefox/62.0'
     }
 
@@ -23,14 +23,14 @@ class RenrenwangspiderSpider(scrapy.Spider):
         cookies_content_list = {}
 
         # 将抓包获取的cookie字符串修改为保存到cookies_content_list字典所需的格式
-        cookies_content = 'anonymid=jnk6wmm5-vhn4nh; depovince=GW; jebecookies=c08eab0d-e5fa-41c9-bd18-8b5d49420a18|||||; _r01_=1; JSESSIONID=abc2466G_CdBF75_VBBAw; ick_login=f4d7118b-c7b1-4853-979c-81896ddf35d9; jebe_key=61b06720-bd7d-4ec1-8776-537d2b53d26e%7Ccfcd208495d565ef66e7dff9f98764da%7C1540206035949%7C0%7C1540206037921; _de=FBF025714A59DC6C03DD14CF1A09F15A; p=6e605b7dcd0c31d920dd3e51386780e76; first_login_flag=1; ln_uact=18377172154; ln_hurl=http://head.xiaonei.com/photos/0/0/men_main.gif; t=1bf20810e341dad6dd105a2d5174a6fe6; societyguester=1bf20810e341dad6dd105a2d5174a6fe6; id=959050106; xnsid=6490e3be; loginfrom=syshome'
+        cookies_content = '通过firefox抓包获取到的cookies'
         cookies_content = cookies_content.replace(' ', '')
         for i in cookies_content.split(';'):
             # 只分割一次
             key, value = i.split('=', 1)
             cookies_content_list[key] = value
         # yield Request() 或 return [Request()]
-        return [Request('http://www.renren.com/959050106',
+        return [Request('登录人人网后的用户主页URL',
                         headers=self.headers,
                         cookies=cookies_content_list,
                         callback=self.parse)]
