@@ -72,7 +72,6 @@ cmdline.execute('scrapy crawl GithupSpider'.split())
 - 说明：通过scrapy使用cookie模拟登录人人网，并爬取用户名和RP值验证是否登录成功
 ```
 step:
-    （登录页面这里都是一个form表单提交，我们可以通过火狐浏览器对其进行分析）
     1. 用firefox打开[登录页面](http://www.renren.com/)
     2. 输入人人网帐号密码，按F12打开页面调试，点击登录
     3. 点击调试页面的"网络">>"消息头">>"请求头"可以看见firefox发送的请求头部信息
