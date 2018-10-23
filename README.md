@@ -54,8 +54,7 @@ from scrapy import cmdline
 cmdline.execute('scrapy crawl GithupSpider'.split())
 ```
 #### 效果图  
-
-- 证明登录成功 --------- 显示githup个人项目信息
+- 证明登录成功 --------- 显示githup个人项目信息  
     
 ![效果图](https://raw.githubusercontent.com/LZC6244/SimulatedLogin/master/Githup/images_demo/3.png)  
 
@@ -70,6 +69,16 @@ cmdline.execute('scrapy crawl GithupSpider'.split())
 - 目标网站：http://renren.com/
 - 运行：运行项目里的cmdline.py
 - 说明：通过scrapy使用cookie模拟登录人人网，并爬取用户名和RP值验证是否登录成功
+
+
+Cookie：可分为内存Cookie和硬盘Cookie，按在客户端中的存储位置分类；Cookie具有有效时间限制，最短的浏览器关闭后就消失，最长可以一直保存到被删除。  
+
+Cookie登录优点：把登录过的信息（用户名、密码以及其他的验证信息）打包一起发给服务器，告知服务器我们是登录验证过的，不需要知道登录url和表单字段以及其他参数，不需要了解登录的过程和细节，一般用于避开验证码等。  
+
+Cookie登录缺点：Cookie会被附加在每个请求中，增加了流量。HTTP请求中的Cookie是明文传递的，存在安全隐患（除非用HTTPS）。大小限制在4K左右，对于复杂的存储需求不够用。  
+
+
+
 ```
 step:
     1. 用firefox打开[登录页面](http://www.renren.com/)
